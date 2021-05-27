@@ -1,5 +1,5 @@
 {
-  "name": "mvc-tech-blog",
+  "name": "git-that-money",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/N2theFray/MVC-tech-blog.git"
+    "url": "git+https://github.com/N2theFray/git-that-money.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/N2theFray/MVC-tech-blog/issues"
+    "url": "https://github.com/N2theFray/git-that-money/issues"
   },
-  "homepage": "https://github.com/N2theFray/MVC-tech-blog#readme"
+  "homepage": "https://github.com/N2theFray/git-that-money#readme"
 }
