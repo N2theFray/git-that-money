@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers')
+var engines = require('consolidate');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,8 +25,10 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
+app.set('view engine', 'ejs');
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

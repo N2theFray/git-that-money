@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       
-      res.render('homepage', {
+      res.render('homepage.handlebars', {
         posts,
         loggedIn: req.session.loggedIn
         ,home: true
@@ -79,7 +79,7 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
       
       // pass data to template
-      res.render('single-post', {
+      res.render('single-post.handlebars', {
           post,
           loggedIn: req.session.loggedIn
           ,home: true
@@ -92,14 +92,20 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login', {
+  res.render('login.handlebars', {
     login: true
   });
 });
 
 router.get('/signup', (req,res) => {
-  res.render('signup', {
+  res.render('signup.handlebars', {
     login: true
+  })
+})
+
+router.get('/upload', (req, res) => {
+  res.render('index.ejs', {
+    login:  true
   })
 })
 
