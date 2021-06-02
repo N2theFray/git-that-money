@@ -1,4 +1,7 @@
 const router = require('express').Router();
+const multer = require("multer");
+const ejs = require("ejs");
+const path = require("path");
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
@@ -97,6 +100,20 @@ router.get('/login', (req, res) => {
   });
 });
 
+// Set storage engine
+const storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function (req, file, cb) {
+   cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+})
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+  limits:{fileSize: 10000000}
+}).single('myResume');
+
 router.get('/signup', (req,res) => {
   res.render('signup.handlebars', {
     login: true
@@ -106,6 +123,19 @@ router.get('/signup', (req,res) => {
 router.get('/upload', (req, res) => {
   res.render('index.ejs', {
     login:  true
+  })
+})
+
+router.post('/upload', (req, res) => {
+  upload(req, res, (err) => {
+    if(err){
+      res.render('index.ejs', {
+        msg: err
+      });
+    } else {
+      console.log(req.file);
+      res.send('Upload Successful!');
+    }
   })
 })
 
