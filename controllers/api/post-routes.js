@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
       'post_content',
       'title',
       'created_at',
+      'progress'
     ],
     include: [
       {
@@ -114,7 +115,9 @@ router.put('/:id', (req, res) => {
   Post.update(
     {
       title: req.body.title,
-      post_content: req.body.post_content
+      post_content: req.body.post_content,
+      contact: req.body.contact,
+      interview: req.body.interview
     },
     {
       where: {
