@@ -11,4 +11,4 @@ This is an app that lets a user save job postings from websites, comment on them
 
 ## Heroku
 
-- (https://afternoon-spire-43056.herokuapp.com)
+- (https://sleepy-eyrie-10581.herokuapp.com/)
